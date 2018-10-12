@@ -14,15 +14,13 @@ defmodule Every do
   """
   use Timex
 
-  def five_minutes() do
-    relative_to = Timex.now()
+  def five_minutes(relative_to \\ Timex.now()) do
     next_due = get_next_interval(relative_to.minute, 5) - relative_to.minute
     Timex.shift(relative_to, minutes: next_due)
     |> get_diff(relative_to)
   end
 
-  def fifteen_minutes() do
-    relative_to = Timex.now()
+  def fifteen_minutes(relative_to \\ Timex.now()) do
     next_due = get_next_interval(relative_to.minute, 15) - relative_to.minute
     Timex.shift(relative_to, minutes: next_due)
     |> get_diff(relative_to)
