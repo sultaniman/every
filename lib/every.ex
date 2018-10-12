@@ -2,7 +2,7 @@ defmodule Every do
   @moduledoc """
   Documentation for Every.
   """
-  @type initial_time() :: DateTime.t
+  @type initial_time() :: DateTime.t | NaiveDateTime.t
 
   def five_minutes(initial_time) do
     
