@@ -8,35 +8,32 @@ defmodule Every do
     3. Hour,
     4. Day (midnight)
 
-  Every method accepts optional `initial_time` parameter
+  Every method accepts optional `relative_to` parameter
   if it is provided then seconds til next call will be
-  calculated relative to give `initial_time`.
+  calculated relative to give `relative_to`.
   """
-  @type initial_time() :: DateTime.t | NaiveDateTime.t
-  @type round_value() :: DateTime.t | NaiveDateTime.t
+  use Timex
 
-  @spec round_to(initial_time()) :: integer()
-  def five_minutes(initial_time \\ nil) do
-
+  def five_minutes() do
+    relative_to = Timex.now()
+    next_due = get_next_interval(relative_to.minute, 5) - relative_to.minute
+    Timex.shift(relative_to, minutes: next_due)
+    |> get_diff(relative_to)
   end
 
-  @spec round_to(initial_time()) :: integer()
-  def fifteen_minutes(initial_time \\ nil) do
-
+  def fifteen_minutes() do
+    relative_to = Timex.now()
+    next_due = get_next_interval(relative_to.minute, 15) - relative_to.minute
+    Timex.shift(relative_to, minutes: next_due)
+    |> get_diff(relative_to)
   end
 
-  @spec round_to(initial_time()) :: integer()
-  def hour(initial_time \\ nil) do
-
+  defp get_diff(result, initial_time) do
+    clamped = %{result | :second => 0, :microsecond => {0, 0}}
+    DateTime.diff(clamped, initial_time, :second)
   end
 
-  @spec round_to(initial_time()) :: integer()
-  def day(initial_time \\ nil) do
-
-  end
-
-  @spec round_to(initial_time(), round_value()) :: integer()
-  defp round_to(initial_time \\ nil, round_value) do
-    truncated = DateTime.truncate(initial_time, :seconds)
+  defp get_next_interval(value, round_value) do
+    value - rem(value, round_value) + round_value
   end
 end
