@@ -1,5 +1,7 @@
 # Every
 
+Generate at rounded intervals for `Process.send_after`.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
