@@ -27,11 +27,18 @@ defmodule Every do
   end
 
   defp get_diff(result, initial_time) do
+    # Returns difference between two `DateTime` instances
+    # with `:second` resolution.
     clamped = %{result | :second => 0, :microsecond => {0, 0}}
     DateTime.diff(clamped, initial_time, :second)
   end
 
   defp get_next_interval(value, round_value) do
-    value - rem(value, round_value) + round_value
+    # Uses `rem` function to get remainder for value
+    # then calculates next step value, for example
+    # value=48, round_value=15
+    # then the result will look like
+    # 48 + 15 - (48%15) = 60
+    value + round_value - rem(value, round_value)
   end
 end
