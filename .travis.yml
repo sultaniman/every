@@ -7,4 +7,4 @@ env:
 
 script:
   - mix test
-  - mix do deps.get, compile, coveralls.travis
+  - mix coveralls.travis
