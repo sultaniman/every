@@ -57,7 +57,7 @@ by adding `every` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:every, "~> 0.0.1"}
+    {:every, "~> 0.0.2"}
   ]
 end
 ```
