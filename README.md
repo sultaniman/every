@@ -1,5 +1,7 @@
 # Every
 
+[![Build Status](https://travis-ci.com/imanhodjaev/every.svg?branch=master)](https://travis-ci.com/imanhodjaev/every)
+
 Calculate even intervals for `Process.send_after/3`.
 Sometimes we need to have periodic tasks to execute exactly at
 certain intervals, for example run task every 15 minutes within hour
