@@ -12,6 +12,7 @@ so we want to execute our task
 
 So instead of doing it manually it is better if it automated.
 
+
 ## Usage
 
 Available methods
@@ -32,6 +33,7 @@ given `DateTime` struct. First argument is literally to be read as `Every N minu
 
 All methods return duration in seconds so it is your task to turn secons into milleseconds etc.
 
+
 ### How to use with periodic tasks
 
 ```ex
@@ -45,6 +47,7 @@ Process.send_after(self(), :work, Every.minute() * 1000)
 # If we want to trigger every hour
 Process.send_after(self(), :work, Every.hour() * 1000)
 ```
+
 
 ## Installation
 
@@ -62,4 +65,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/every](https://hexdocs.pm/every).
-

@@ -6,7 +6,7 @@ defmodule Every do
     1. Minute,
     2. N minutes,
     3. Hour,
-    4. N Hours
+    4. N Hours.
 
   Every method accepts optional `relative_to` parameter
   if it is provided then seconds til next call will be
@@ -21,7 +21,7 @@ defmodule Every do
   If `relative_to` `DateTime` is not provided
   then current moment in time is used.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
@@ -39,7 +39,7 @@ defmodule Every do
   until next interval when relative
   `DateTime` is not provided and equals to `nil`.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
@@ -58,7 +58,7 @@ defmodule Every do
   If `relative_to` `DateTime` is not provided
   then current moment in time is used.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
@@ -82,7 +82,7 @@ defmodule Every do
   If `relative_to` `DateTime` is not provided
   then current moment in time is used.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
@@ -103,7 +103,7 @@ defmodule Every do
   If `relative_to` `DateTime` is not provided
   then current moment in time is used.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
@@ -122,7 +122,7 @@ defmodule Every do
   If `relative_to` `DateTime` is not provided
   then current moment in time is used.
 
-  Returns: `integer` number of seconds
+  Returns: `integer` number of seconds.
 
   ## Example
 
