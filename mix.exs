@@ -11,6 +11,10 @@ defmodule Every.MixProject do
     ]
   end
 
+  def description do
+    "Calculate even intervals for `Process.send_after/3`"
+  end
+
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
