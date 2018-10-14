@@ -3,10 +3,10 @@ defmodule Every do
   Every gives you ability to use `Process.send_after/3`
   with calculated intervals which can be rounded to every
 
-    1. Five minutes,
-    2. Fifteen minutes,
+    1. Minute,
+    2. N minutes,
     3. Hour,
-    4. Day (midnight)
+    4. N Hours
 
   Every method accepts optional `relative_to` parameter
   if it is provided then seconds til next call will be
