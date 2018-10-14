@@ -9,8 +9,8 @@ defmodule Every do
     4. N Hours.
 
   Every method accepts optional `relative_to` parameter
-  if it is provided then seconds til next call will be
-  calculated relative to give `relative_to`.
+  if it is provided then duration in seconds until next
+  call will be calculated relative to given `relative_to`.
   """
   use Timex
 
