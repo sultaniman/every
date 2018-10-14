@@ -4,3 +4,4 @@ otp_release: '21.0'
 
 script:
   - mix test
+  - mix coveralls.travis
