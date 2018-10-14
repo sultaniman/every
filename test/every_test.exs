@@ -27,6 +27,10 @@ defmodule EveryTest do
     assert Every.minutes(15, datetime) == 708
   end
 
+  test "Every N minutes without relative time works as expected" do
+    assert Every.minutes(2, nil) <= 120
+  end
+
   test "Every hour works as expected" do
     {:ok, datetime, _} = DateTime.from_iso8601(@date_string)
 
@@ -46,5 +50,10 @@ defmodule EveryTest do
     # Next time at 22:00 because of remaining time
     # is about ~4.21 hours.
     assert Every.hours(10, datetime) == 15168
+  end
+
+  test "Every N hours without relative time works as expected" do
+    assert Every.hours(2, nil) / 3600 > 0
+    assert Every.hours(2, nil) / 3600 <= 2
   end
 end
