@@ -20,13 +20,6 @@ then makes all calculation relative to given `DateTime` struct.
 optional parameter `relative_to` if provided then makes all calculation relative to
 given `DateTime` struct. First argument is literally to be read as `Every N minutes/hours`.
 
-```ex
-Every.minute()  # Returns seconds remaining until next minute starts
-Every.minutes(5, Timex.now())  # Returns minutes remaining until next interval starts
-Every.hour()  # Returns minutes remaining until next hour starts
-Every.hours(1, Timex.now())  # Returns minutes remaining until next hour starts
-```
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
