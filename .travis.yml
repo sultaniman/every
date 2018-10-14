@@ -3,5 +3,4 @@ elixir: '1.7'
 otp_release: '21.0'
 
 script:
-  - mix test
-  - mix coveralls.travis
+  - MIX_ENV=test mix do deps.get, compile, test, coveralls.travis
