@@ -1,6 +1,7 @@
 # Every
 
 [![Build Status](https://travis-ci.com/imanhodjaev/every.svg?branch=master)](https://travis-ci.com/imanhodjaev/every)
+
 [![Coverage Status](https://coveralls.io/repos/github/imanhodjaev/every/badge.svg?branch=master)](https://coveralls.io/github/imanhodjaev/every?branch=master)
 
 Calculate even intervals for `Process.send_after/3`.
@@ -50,6 +51,8 @@ Process.send_after(self(), :work, Every.minute() * 1000)
 # If we want to trigger every hour
 Process.send_after(self(), :work, Every.hour() * 1000)
 ```
+
+As you can see we multiply by `1000` because return value has only `second` resolution.
 
 
 ## Installation
