@@ -132,10 +132,9 @@ defmodule Every do
   """
   def hours(interval, relative_to) do
     next_due = get_next_interval(relative_to.hour, interval) - relative_to.hour
-    hour_diff = relative_to.hour - 1 - relative_to.hour + next_due
     minutes_left = 60 - relative_to.minute
     seconds_left = 60 - relative_to.second
-    3600 * hour_diff + 60 * minutes_left + seconds_left
+    3600 * (next_due - 1) + 60 * minutes_left + seconds_left
   end
 
   defp get_diff(result, initial_time) do
