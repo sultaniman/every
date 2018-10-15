@@ -13,7 +13,7 @@ so we want to execute our task
 3. 30th minute,
 4. 45th minute.
 
-So instead of doing it manually it is better if it automated.
+So instead of doing it manually, it is better if it is automated.
 
 
 ## Usage
