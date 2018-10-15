@@ -34,7 +34,7 @@ then makes all calculation relative to given `DateTime` struct.
 optional parameter `relative_to` if provided then makes all calculation relative to
 given `DateTime` struct. First argument is literally to be read as `Every N minutes/hours`.
 
-All methods return duration in seconds so it is your task to turn secons into milleseconds etc.
+All methods return duration in seconds so it is your task to turn secons into milliseconds etc.
 
 
 ### How to use with periodic tasks
