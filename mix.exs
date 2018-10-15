@@ -36,7 +36,7 @@ defmodule Every.MixProject do
     [
       {:timex, "~> 3.4"},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.10", only: :test},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
