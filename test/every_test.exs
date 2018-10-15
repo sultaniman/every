@@ -18,6 +18,9 @@ defmodule EveryTest do
     # Next time at 16:51
     assert Every.minutes(3, datetime) == 168
 
+    # Next in 7m:48s
+    assert Every.minutes(8, datetime) == 468
+
     # Every 10 minute will align to next to due
     # which divides without remainder thus it will
     # be 16:50 etc.
