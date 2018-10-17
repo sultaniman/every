@@ -12,8 +12,9 @@ so we want to execute our task
 2. 15th minute,
 3. 30th minute,
 4. 45th minute.
+5. etc.
 
-So instead of doing it manually it is better if it automated.
+So instead of doing it manually, it is better if it is automated.
 
 
 ## Usage
@@ -34,7 +35,7 @@ then makes all calculation relative to given `DateTime` struct.
 optional parameter `relative_to` if provided then makes all calculation relative to
 given `DateTime` struct. First argument is literally to be read as `Every N minutes/hours`.
 
-All methods return duration in seconds so it is your task to turn secons into milleseconds etc.
+All methods return duration in seconds so it is your task to turn secons into milliseconds etc.
 
 
 ### How to use with periodic tasks
@@ -62,7 +63,7 @@ by adding `every` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:every, "~> 0.0.2"}
+    {:every, "~> 0.0.3"}
   ]
 end
 ```
