@@ -2,6 +2,7 @@ defmodule Every do
   @moduledoc """
   Every gives you ability to use `Process.send_after/3`
   with calculated intervals which can be rounded to every
+  (note: all functions return values only in seconds)
 
     1. Minute,
     2. N minutes,
