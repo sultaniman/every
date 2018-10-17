@@ -43,13 +43,16 @@ All methods return duration in seconds so it is your task to turn secons into mi
 ```ex
 # Lets say we want to trigger our task every 5 minutes and current time is 12:02
 # so next call will be at 12:05, 12:10 ... 12:55 ...
-Process.send_after(self(), :work, Every.minutes(5) * 1000)
+Process.send_after(self(), :work, Every.minutes(5, nil) * 1000)
 
 # If we want to trigger every minute
 Process.send_after(self(), :work, Every.minute() * 1000)
 
 # If we want to trigger every hour
 Process.send_after(self(), :work, Every.hour() * 1000)
+
+# If we want to trigger every 2 hours
+Process.send_after(self(), :work, Every.hours(2, nil) * 1000)
 ```
 
 As you can see we multiply by `1000` because return value has only `second` resolution.
