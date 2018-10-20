@@ -149,11 +149,11 @@ defmodule Every do
   ## Example
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
-      iex> Every.day(now)
+      iex> Every.day(now)  # Time remaining 7h 25m 48s
       25908
   """
   def day(relative_to \\ Timex.now()) do
-    # Get remaining hours from next hour
+    # First we need to nullify all values except day
     midnight = %{
       relative_to |
       :hour => 0,
@@ -162,10 +162,11 @@ defmodule Every do
       :microsecond => {0, 0}
     }
 
-    DateTime.diff(
-      Timex.shift(midnight, days: 1),
-      relative_to, :second
-    )
+    # Then we need to shift by 1 day and get difference
+    # between new day and given `relative_to` date with
+    # `:second` resolution as a result.
+    next_day = Timex.shift(midnight, days: 1)
+    DateTime.diff(next_day, relative_to, :second)
   end
 
   defp get_diff(result, initial_time) do
