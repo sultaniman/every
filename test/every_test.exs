@@ -55,7 +55,7 @@ defmodule EveryTest do
 
     # Next time at 22:00 because of remaining time
     # is about ~4.21 hours.
-    assert Every.hours(10, datetime) == 11568
+    assert Every.hours(10, datetime) == 11_568
 
     # 1:12:48 til next time
     assert Every.hours(3, datetime) == 4368
@@ -71,6 +71,6 @@ defmodule EveryTest do
   test "Every day works as expected" do
     {:ok, datetime, _} = DateTime.from_iso8601(@date_string)
     # Time remaining 7h 25m 48s
-    assert Every.day(datetime) == 25908
+    assert Every.day(datetime) == 25_908
   end
 end
