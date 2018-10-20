@@ -73,7 +73,7 @@ by adding `every` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:every, "~> 0.0.3"}
+    {:every, "~> 0.0.4"}
   ]
 end
 ```
