@@ -153,7 +153,7 @@ defmodule Every do
       25908
   """
   def day(relative_to \\ Timex.now()) do
-    # First we need to nullify all values except day
+    # First we need to nullify all values except day value
     midnight = %{
       relative_to |
       :hour => 0,
