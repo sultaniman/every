@@ -67,4 +67,10 @@ defmodule EveryTest do
     assert Every.hours(2, nil) / 3600 > 0
     assert Every.hours(2, nil) / 3600 <= 2
   end
+
+  test "Every day works as expected" do
+    {:ok, datetime, _} = DateTime.from_iso8601(@date_string)
+    # Time remaining 7h 25m 48s
+    assert Every.day(datetime) == 25908
+  end
 end
