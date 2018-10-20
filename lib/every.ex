@@ -138,6 +138,36 @@ defmodule Every do
     3600 * (next_due - 1) + 60 * minutes_left + seconds_left
   end
 
+  @doc """
+  Calculate interval until next day.
+
+  If `relative_to` `DateTime` is not provided
+  then current moment in time is used.
+
+  Returns: `integer` number of seconds.
+
+  ## Example
+
+      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> Every.day(now)
+      25908
+  """
+  def day(relative_to \\ Timex.now()) do
+    # Get remaining hours from next hour
+    midnight = %{
+      relative_to |
+      :hour => 0,
+      :minute => 0,
+      :second => 0,
+      :microsecond => {0, 0}
+    }
+
+    DateTime.diff(
+      Timex.shift(midnight, days: 1),
+      relative_to, :second
+    )
+  end
+
   defp get_diff(result, initial_time) do
     # Returns difference between two `DateTime` instances
     # with `:second` resolution.
