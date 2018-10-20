@@ -36,6 +36,9 @@ then makes all calculation relative to given `DateTime` struct.
 optional parameter `relative_to` if provided then makes all calculation relative to
 given `DateTime` struct. First argument is literally to be read as `Every N minutes/hours`.
 
+`Every.day/1` accepts optional parameter `relative_to` if provided
+then makes all calculation relative to given `DateTime` struct.
+
 All methods return duration in seconds so it is your task to turn secons into milliseconds etc.
 
 
@@ -54,6 +57,9 @@ Process.send_after(self(), :work, Every.hour() * 1000)
 
 # If we want to trigger every 2 hours
 Process.send_after(self(), :work, Every.hours(2, nil) * 1000)
+
+# If we want to trigger every day
+Process.send_after(self(), :work, Every.day() * 1000)
 ```
 
 As you can see we multiply by `1000` because return value has only `second` resolution.
