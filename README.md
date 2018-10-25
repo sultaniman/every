@@ -27,6 +27,7 @@ Every.minute/1
 Every.minutes/2
 Every.hour/1
 Every.hours/2
+Every.day/1
 ```
 
 `Every.minute/1` anf `Every.hour/1` accepts optional parameter `relative_to` if provided
