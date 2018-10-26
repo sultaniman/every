@@ -4,10 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/imanhodjaev/every/badge.svg?branch=master&v=1)](https://coveralls.io/github/imanhodjaev/every?branch=master)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-Calculate even intervals for `Process.send_after/3`.
-Sometimes we need to have periodic tasks to execute exactly at
-certain intervals, for example run task every 15 minutes within hour
-so we want to execute our task
+Calculate even intervals for `Process.send_after/3`. Sometimes we need to have
+periodic tasks to be executed exactly at certain intervals, for example running
+a task every 15 minutes.
 
 1. At the beginning of hour,
 2. 15th minute,
@@ -20,35 +19,34 @@ So instead of doing it manually, it is better if it is automated.
 
 ## Usage
 
-Available methods
+Available functions:
 
-```ex
-Every.minute/1
-Every.minutes/2
-Every.hour/1
-Every.hours/2
-Every.day/1
-```
+* `Every.minute/1`
+* `Every.minutes/2`
+* `Every.hour/1`
+* `Every.hours/2`
+* `Every.day/1`
 
-`Every.minute/1` anf `Every.hour/1` accepts optional parameter `relative_to` if provided
-then makes all calculation relative to given `DateTime` struct.
+All functions accept an optional `relative_to` (`DateTime` or `NaiveDateTime`)
+parameter which can be used to fake the current moment in time. If it is not
+provided, the current time will be used.
 
-`Every.minutes/2` anf `Every.hour/2` both accept time interval as a first argument and
-optional parameter `relative_to` if provided then makes all calculation relative to
-given `DateTime` struct. First argument is literally to be read as `Every N minutes/hours`.
+`Every.minute/1`, `Every.hour/1` and `Every.day/1` only accept the optional
+`relative_to` parameter. They return the seconds left until the next
+minute/hour/day.
 
-`Every.day/1` accepts optional parameter `relative_to` if provided
-then makes all calculation relative to given `DateTime` struct.
+`Every.minutes/2` and `Every.hours/2` both accept an interval as first parameter
+and the optional `relative_to` as second parameter. They return the seconds
+until the the next interval.
 
-All methods return duration in seconds so it is your task to turn secons into milliseconds etc.
-
+**Note:** All functions return the difference in seconds!
 
 ### How to use with periodic tasks
 
-```ex
+```elixir
 # Lets say we want to trigger our task every 5 minutes and current time is 12:02
-# so next call will be at 12:05, 12:10 ... 12:55 ...
-Process.send_after(self(), :work, Every.minutes(5, nil) * 1000)
+# so next calls will be at 12:05, 12:10 ... 12:55 ...
+Process.send_after(self(), :work, Every.minutes(5) * 1000)
 
 # If we want to trigger every minute
 Process.send_after(self(), :work, Every.minute() * 1000)
@@ -57,25 +55,23 @@ Process.send_after(self(), :work, Every.minute() * 1000)
 Process.send_after(self(), :work, Every.hour() * 1000)
 
 # If we want to trigger every 2 hours
-Process.send_after(self(), :work, Every.hours(2, nil) * 1000)
+Process.send_after(self(), :work, Every.hours(2) * 1000)
 
 # If we want to trigger every day
 Process.send_after(self(), :work, Every.day() * 1000)
 ```
 
-As you can see we multiply by `1000` because return value has only `second` resolution.
-
+As you can see we multiply by `1000` because return value has only `second`
+resolution.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `every` to your list of dependencies in `mix.exs`:
+This library can be installed by adding `every` to the list of dependencies in
+your `mix.exs`:
 
 ```elixir
 def deps do
-  [
-    {:every, "~> 0.0.4"}
-  ]
+  [{:every, "~> 0.0.4"}]
 end
 ```
 
