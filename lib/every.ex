@@ -59,12 +59,12 @@ defmodule Every do
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.hour(now)
-      768
+      708
   """
   def hour(relative_to \\ Timex.now()) do
     minutes_left = 60 - relative_to.minute
     seconds_left = 60 - relative_to.second
-    60 * minutes_left + seconds_left
+    60 * (minutes_left - 1) + seconds_left
   end
 
   @doc """
@@ -85,7 +85,7 @@ defmodule Every do
     next_due = get_next_interval(relative_to.hour, interval) - relative_to.hour
     minutes_left = 60 - relative_to.minute
     seconds_left = 60 - relative_to.second
-    3600 * (next_due - 1) + 60 * minutes_left + seconds_left
+    3600 * (next_due - 1) + 60 * (minutes_left - 1) + seconds_left
   end
 
   @doc """
