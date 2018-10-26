@@ -74,8 +74,8 @@ defmodule Every do
   ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
-      iex> Every.hour(now)
-      768
+      iex> Every.hours(2, now)
+      4308
   """
   def hours(interval, relative_to) when is_nil(relative_to) do
     hours(interval, Timex.now())
