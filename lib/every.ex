@@ -20,7 +20,7 @@ defmodule Every do
 
   ## Examples
 
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.minute(now)
       48
   """
@@ -34,7 +34,7 @@ defmodule Every do
 
   ## Examples
 
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.minutes(5, now)  # 16:50 > 15:50:00 - 16:48:12
       108
   """
@@ -59,7 +59,7 @@ defmodule Every do
 
   ## Examples
 
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.hour(now)
       708
   """
@@ -80,7 +80,7 @@ defmodule Every do
 
   ## Examples
 
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.hours(2, now)
       4308
   """
@@ -106,7 +106,7 @@ defmodule Every do
 
   ## Examples
 
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
+      iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.day(now)  # Time remaining 7h 25m 48s
       25908
   """
