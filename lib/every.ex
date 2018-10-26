@@ -1,29 +1,24 @@
 defmodule Every do
   @moduledoc """
-  Every gives you ability to use `Process.send_after/3`
-  with calculated intervals which can be rounded to every
-  (note: all functions return values only in seconds)
+  Every gives you ability to use `Process.send_after/3` with calculated
+  intervals which can be rounded to every:
 
     1. Minute,
     2. N minutes,
     3. Hour,
     4. N Hours.
 
-  Every method accepts optional `relative_to` parameter
-  if it is provided then duration in seconds until next
-  call will be calculated relative to given `relative_to`.
+  Every function accepts an optional `relative_to` parameter, which can be used
+  to fake the current moment in time. If it is not provided, the current time
+  will be used.
+
+  **Note:** All functions return the difference in seconds!
   """
 
   @doc """
-  Calculate how many seconds left
-  until next minute starts.
+  Calculates how many seconds left until the next minute starts.
 
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
+  ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.minute(now)
@@ -35,13 +30,10 @@ defmodule Every do
   end
 
   @doc """
-  Calculate how many minutes left
-  until next interval when relative
-  `DateTime` is not provided and equals to `nil`.
+  Calculates how many seconds left until the next interval (minutes) will be
+  reached.
 
-  Returns: `integer` number of seconds.
-
-  ## Example
+  ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.minutes(5, now)  # 16:50 > 15:50:00 - 16:48:12
@@ -51,21 +43,6 @@ defmodule Every do
     minutes(interval, Timex.now())
   end
 
-  @doc """
-  Calculate how many minutes left
-  until next interval.
-
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
-
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
-      iex> Every.minutes(5, now)  # 16:50 > 15:50:00 - 16:48:12
-      108
-  """
   def minutes(interval, relative_to) do
     next_due = get_next_interval(relative_to.minute, interval) - relative_to.minute
 
@@ -76,15 +53,9 @@ defmodule Every do
   end
 
   @doc """
-  Calculate how many minutes left
-  until next hour starts.
+  Calculates how many seconds left until the next hour starts.
 
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
+  ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.hour(now)
@@ -97,15 +68,10 @@ defmodule Every do
   end
 
   @doc """
-  Calculate how many minutes left
-  until next hour starts.
+  Calculates how many seconds left until the next interval (hours) will be
+  reached.
 
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
+  ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.hour(now)
@@ -115,21 +81,6 @@ defmodule Every do
     hours(interval, Timex.now())
   end
 
-  @doc """
-  Calculate how many minutes left
-  until next hour starts.
-
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
-
-      iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
-      iex> Every.hour(now)
-      768
-  """
   def hours(interval, relative_to) do
     next_due = get_next_interval(relative_to.hour, interval) - relative_to.hour
     minutes_left = 60 - relative_to.minute
@@ -138,14 +89,9 @@ defmodule Every do
   end
 
   @doc """
-  Calculate interval until next day.
+  Calculates how many seconds left until the next day starts.
 
-  If `relative_to` `DateTime` is not provided
-  then current moment in time is used.
-
-  Returns: `integer` number of seconds.
-
-  ## Example
+  ## Examples
 
       iex> {:ok, now, _} = DateTime.from_iso8601("2018-10-14T16:48:12.000Z")
       iex> Every.day(now)  # Time remaining 7h 25m 48s
