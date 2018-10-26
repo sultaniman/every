@@ -40,6 +40,7 @@ defmodule Every do
   """
   def minutes(interval, relative_to \\ Timex.now())
 
+  @deprecated "Use minutes/1 instead"
   def minutes(interval, nil), do: minutes(interval)
 
   def minutes(interval, relative_to) do
@@ -86,6 +87,7 @@ defmodule Every do
   """
   def hours(interval, relative_to \\ Timex.now())
 
+  @deprecated "Use hours/1 instead"
   def hours(interval, nil), do: hours(interval)
 
   def hours(interval, relative_to) do
