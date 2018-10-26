@@ -15,6 +15,8 @@ defmodule Every do
   **Note:** All functions return the difference in seconds!
   """
 
+  require Logger
+
   @doc """
   Calculates how many seconds left until the next minute starts.
 
@@ -40,8 +42,11 @@ defmodule Every do
   """
   def minutes(interval, relative_to \\ Timex.now())
 
-  @deprecated "Use minutes/1 instead"
-  def minutes(interval, nil), do: minutes(interval)
+  def minutes(interval, nil), do
+    Logger.warn("Every.minutes(interval, nil) is deprecated! Use Every.minutes(interval) instead.")
+
+    minutes(interval)
+  end
 
   def minutes(interval, relative_to) do
     minutes_until_next_interval = next_interval(relative_to.minute, interval)
@@ -87,8 +92,11 @@ defmodule Every do
   """
   def hours(interval, relative_to \\ Timex.now())
 
-  @deprecated "Use hours/1 instead"
-  def hours(interval, nil), do: hours(interval)
+  def hours(interval, nil) do
+    Logger.warn("Every.hours(interval, nil) is deprecated! Use Every.hours(interval) instead.")
+
+    hours(interval)
+  end
 
   def hours(interval, relative_to) do
     hours_until_next_interval = next_interval(relative_to.hour, interval)
