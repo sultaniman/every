@@ -42,8 +42,10 @@ defmodule Every do
   """
   def minutes(interval, relative_to \\ Timex.now())
 
-  def minutes(interval, nil), do
-    Logger.warn("Every.minutes(interval, nil) is deprecated! Use Every.minutes(interval) instead.")
+  def minutes(interval, nil) do
+    Logger.warn(
+      "Every.minutes(interval, nil) is deprecated! Use Every.minutes(interval) instead."
+    )
 
     minutes(interval)
   end
