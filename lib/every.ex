@@ -13,7 +13,6 @@ defmodule Every do
   if it is provided then duration in seconds until next
   call will be calculated relative to given `relative_to`.
   """
-  use Timex
 
   @doc """
   Calculate how many seconds left
