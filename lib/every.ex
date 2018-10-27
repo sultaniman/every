@@ -24,7 +24,7 @@ defmodule Every do
 
       iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.minute(now)
-      48
+      48_000
   """
   def minute(relative_to \\ Timex.now()) do
     (60 - relative_to.second) * 1000
@@ -38,7 +38,7 @@ defmodule Every do
 
       iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.minutes(5, now)  # 16:50 > 15:50:00 - 16:48:12
-      108
+      108_000
   """
   def minutes(interval, relative_to \\ Timex.now())
 
@@ -69,7 +69,7 @@ defmodule Every do
 
       iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.hour(now)
-      708
+      708_000
   """
   def hour(relative_to \\ Timex.now()) do
     {microseconds, _precision} = relative_to.microsecond
@@ -90,7 +90,7 @@ defmodule Every do
 
       iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.hours(2, now)
-      4308
+      4_308_000
   """
   def hours(interval, relative_to \\ Timex.now())
 
@@ -120,7 +120,7 @@ defmodule Every do
 
       iex> now = Timex.parse!("2018-10-14T16:48:12.000Z", "{ISO:Extended}")
       iex> Every.day(now)  # Time remaining 7h 25m 48s
-      25908
+      25_908_000
   """
   def day(relative_to \\ Timex.now()) do
     relative_to
