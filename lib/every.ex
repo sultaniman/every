@@ -12,13 +12,13 @@ defmodule Every do
   to fake the current moment in time. If it is not provided, the current time
   will be used.
 
-  **Note:** All functions return the difference in seconds!
+  **Note:** All functions return the difference in milliseconds!
   """
 
   require Logger
 
   @doc """
-  Calculates how many seconds left until the next minute starts.
+  Calculates how many milliseconds left until the next minute starts.
 
   ## Examples
 
@@ -27,11 +27,11 @@ defmodule Every do
       48
   """
   def minute(relative_to \\ Timex.now()) do
-    60 - relative_to.second
+    (60 - relative_to.second) * 1000
   end
 
   @doc """
-  Calculates how many seconds left until the next interval (minutes) will be
+  Calculates how many milliseconds left until the next interval (minutes) will be
   reached.
 
   ## Examples
@@ -59,7 +59,7 @@ defmodule Every do
     |> Timex.shift(seconds: -relative_to.second)
     |> Timex.shift(microseconds: -microseconds)
     |> Timex.shift(minutes: minutes_until_next_interval)
-    |> Timex.diff(relative_to, :seconds)
+    |> Timex.diff(relative_to, :milliseconds)
   end
 
   @doc """
@@ -79,11 +79,11 @@ defmodule Every do
     |> Timex.shift(microseconds: -microseconds)
     |> Timex.shift(minutes: -relative_to.minute)
     |> Timex.shift(hours: 1)
-    |> Timex.diff(relative_to, :seconds)
+    |> Timex.diff(relative_to, :milliseconds)
   end
 
   @doc """
-  Calculates how many seconds left until the next interval (hours) will be
+  Calculates how many milliseconds left until the next interval (hours) will be
   reached.
 
   ## Examples
@@ -110,11 +110,11 @@ defmodule Every do
     |> Timex.shift(microseconds: -microseconds)
     |> Timex.shift(minutes: -relative_to.minute)
     |> Timex.shift(hours: hours_until_next_interval)
-    |> Timex.diff(relative_to, :seconds)
+    |> Timex.diff(relative_to, :milliseconds)
   end
 
   @doc """
-  Calculates how many seconds left until the next day starts.
+  Calculates how many milliseconds left until the next day starts.
 
   ## Examples
 
@@ -126,7 +126,7 @@ defmodule Every do
     relative_to
     |> Timex.shift(days: 1)
     |> Timex.beginning_of_day()
-    |> Timex.diff(relative_to, :seconds)
+    |> Timex.diff(relative_to, :milliseconds)
   end
 
   defp next_interval(value, round_value) do
@@ -134,7 +134,7 @@ defmodule Every do
     # then calculates next step value, for example
     # value=48, round_value=15
     # then the result will look like
-    # 48 + 15 - (48%15) = 60
+    # 15 - (48%15) = 60
     round_value - rem(value, round_value)
   end
 end

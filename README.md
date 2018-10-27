@@ -16,7 +16,6 @@ a task every 15 minutes.
 
 So instead of doing it manually, it is better if it is automated.
 
-
 ## Usage
 
 Available functions:
@@ -32,37 +31,34 @@ parameter which can be used to fake the current moment in time. If it is not
 provided, the current time will be used.
 
 `Every.minute/1`, `Every.hour/1` and `Every.day/1` only accept the optional
-`relative_to` parameter. They return the seconds left until the next
+`relative_to` parameter. They return the milliseconds left until the next
 minute/hour/day.
 
 `Every.minutes/2` and `Every.hours/2` both accept an interval as first parameter
-and the optional `relative_to` as second parameter. They return the seconds
+and the optional `relative_to` as second parameter. They return the milliseconds
 until the the next interval.
 
-**Note:** All functions return the difference in seconds!
+**Note:** All functions return the difference in milliseconds!
 
 ### How to use with periodic tasks
 
 ```elixir
 # Lets say we want to trigger our task every 5 minutes and current time is 12:02
 # so next calls will be at 12:05, 12:10 ... 12:55 ...
-Process.send_after(self(), :work, Every.minutes(5) * 1000)
+Process.send_after(self(), :work, Every.minutes(5))
 
 # If we want to trigger every minute
-Process.send_after(self(), :work, Every.minute() * 1000)
+Process.send_after(self(), :work, Every.minute())
 
 # If we want to trigger every hour
-Process.send_after(self(), :work, Every.hour() * 1000)
+Process.send_after(self(), :work, Every.hour())
 
 # If we want to trigger every 2 hours
-Process.send_after(self(), :work, Every.hours(2) * 1000)
+Process.send_after(self(), :work, Every.hours(2))
 
 # If we want to trigger every day
-Process.send_after(self(), :work, Every.day() * 1000)
+Process.send_after(self(), :work, Every.day())
 ```
-
-As you can see we multiply by `1000` because return value has only `second`
-resolution.
 
 ## Installation
 
