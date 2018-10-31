@@ -134,7 +134,7 @@ defmodule Every do
     # then calculates next step value, for example
     # value=48, round_value=15
     # then the result will look like
-    # 15 - (48%15) = 60
+    # 15 - (48%15) = 12
     round_value - rem(value, round_value)
   end
 end
