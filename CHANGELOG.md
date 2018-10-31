@@ -2,10 +2,12 @@
 
 ## Dev
 
+
+## Version 0.0.6
 * Resolution is milliseconds now so `Process.send_after/3` friendly, so you don't have to do manual work.
 
 
-## Version 0.0.6
+## Version 0.0.5
 
 
 ### Improvements
