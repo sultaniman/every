@@ -12,7 +12,6 @@ a task every 15 minutes.
 2. 15th minute,
 3. 30th minute,
 4. 45th minute.
-5. etc.
 
 So instead of doing it manually, it is better if it is automated.
 
