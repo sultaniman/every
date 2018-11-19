@@ -42,14 +42,6 @@ defmodule Every do
   """
   def minutes(interval, relative_to \\ Timex.now())
 
-  def minutes(interval, nil) do
-    Logger.warn(
-      "Every.minutes(interval, nil) is deprecated! Use Every.minutes(interval) instead."
-    )
-
-    minutes(interval)
-  end
-
   def minutes(interval, relative_to) do
     minutes_until_next_interval = next_interval(relative_to.minute, interval)
 
@@ -93,12 +85,6 @@ defmodule Every do
       4_308_000
   """
   def hours(interval, relative_to \\ Timex.now())
-
-  def hours(interval, nil) do
-    Logger.warn("Every.hours(interval, nil) is deprecated! Use Every.hours(interval) instead.")
-
-    hours(interval)
-  end
 
   def hours(interval, relative_to) do
     hours_until_next_interval = next_interval(relative_to.hour, interval)

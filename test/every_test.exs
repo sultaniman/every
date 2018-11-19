@@ -33,8 +33,8 @@ defmodule EveryTest do
   test "Every N minutes without relative time works as expected" do
     # Test should basicall check if the
     # value is between 0 minutes and 2 minutes
-    assert Every.minutes(2, nil) > 0
-    assert Every.minutes(2, nil) <= 120_000
+    assert Every.minutes(2) > 0
+    assert Every.minutes(2) <= 120_000
   end
 
   test "Every hour works as expected", %{datetime: datetime} do
@@ -60,8 +60,8 @@ defmodule EveryTest do
   test "Every N hours without relative time works as expected" do
     # Test should basicall check if the
     # value is between 0 hours and 2 hours
-    assert Every.hours(2, nil) / 3_600_000 > 0
-    assert Every.hours(2, nil) / 3_600_000 <= 2
+    assert Every.hours(2) / 3_600_000 > 0
+    assert Every.hours(2) / 3_600_000 <= 2
   end
 
   test "Every day works as expected", %{datetime: datetime} do
