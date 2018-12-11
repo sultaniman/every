@@ -66,7 +66,7 @@ your `mix.exs`:
 
 ```elixir
 def deps do
-  [{:every, "~> 0.0.6"}]
+  [{:every, "~> 0.0.7"}]
 end
 ```
 
