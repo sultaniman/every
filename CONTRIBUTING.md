@@ -2,7 +2,7 @@
 
 #### **How to format code?**
 
-* Use credo to format your code before submitting.
+* Use exfmt and credo to format and lint your code before submitting.
 
 #### **Did you find a bug?**
 
