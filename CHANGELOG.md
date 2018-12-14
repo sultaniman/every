@@ -2,6 +2,9 @@
 
 ## Dev
 
+## Version 0.0.7
+* Remove deprecated functions `minutes(interval, nil)` and `hours(interval, nil)`.
+
 
 ## Version 0.0.6
 * Resolution is milliseconds now so `Process.send_after/3` friendly, so you don't have to do manual work.
