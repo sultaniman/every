@@ -4,8 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/imanhodjaev/every/badge.svg?branch=master&v=1)](https://coveralls.io/github/imanhodjaev/every?branch=master)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-Calculate even intervals for `Process.send_after/3`. Sometimes we need to have
-periodic tasks to be executed exactly at certain intervals, for example running
+Calculate even intervals for. Sometimes we need to have
+periodic tasks to be executed exactly at certain time points, for example running
 a task every 15 minutes.
 
 1. At the beginning of hour,
