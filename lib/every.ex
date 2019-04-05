@@ -15,8 +15,6 @@ defmodule Every do
   **Note:** All functions return the difference in milliseconds!
   """
 
-  require Logger
-
   @doc """
   Calculates how many milliseconds left until the next minute starts.
 
