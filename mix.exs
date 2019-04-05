@@ -34,11 +34,11 @@ defmodule Every.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:timex, "~> 3.4"},
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:timex, "~> 3.5"},
+      {:ex_doc, "~> 0.20", only: :dev, runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
       {:inch_ex, github: "rrrene/inch_ex", only: [:dev, :test]},
-      {:credo, "~> 0.10.2", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
