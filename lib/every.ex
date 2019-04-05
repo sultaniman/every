@@ -1,12 +1,13 @@
 defmodule Every do
   @moduledoc """
-  Every gives you ability to use `Process.send_after/3` with calculated
+  Every gives you ability to use `Process.send_after/3` with
   intervals which can be rounded to every:
 
     1. Minute,
     2. N minutes,
     3. Hour,
-    4. N Hours.
+    4. N Hours,
+    5. Day.
 
   Every function accepts an optional `relative_to` parameter, which can be used
   to fake the current moment in time. If it is not provided, the current time
