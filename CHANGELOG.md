@@ -2,6 +2,13 @@
 
 ## Dev
 
+## Version 0.0.8
+* Update packages,
+* Cleanup unused code,
+* Add community related papers like contributing, code of conduct,
+* Add credo and inch to inspect and analyze code.
+
+
 ## Version 0.0.7
 * Remove deprecated functions `minutes(interval, nil)` and `hours(interval, nil)`.
 
