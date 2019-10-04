@@ -62,7 +62,9 @@ defmodule Every do
       iex> Every.hour(now)
       708_000
   """
-  def hour(relative_to \\ Timex.now()) do
+  def hour(relative_to \\ Timex.now())
+
+  def hour(relative_to) do
     {microseconds, _precision} = relative_to.microsecond
 
     relative_to
@@ -107,7 +109,9 @@ defmodule Every do
       iex> Every.day(now)  # Time remaining 7h 25m 48s
       25_908_000
   """
-  def day(relative_to \\ Timex.now()) do
+  def day(relative_to \\ Timex.now())
+  
+  def day(relative_to) do
     relative_to
     |> Timex.shift(days: 1)
     |> Timex.beginning_of_day()
