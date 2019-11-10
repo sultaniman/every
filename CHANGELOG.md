@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Dev
+* Remove config
 
 ## Version 0.0.8
 * Update packages,
