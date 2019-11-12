@@ -1,7 +1,13 @@
 # CHANGELOG
 
 ## Dev
-* Remove config
+
+
+## Version 0.0.9
+* Update packages,
+* Remove unused config,
+* Cleanup mixfile.
+
 
 ## Version 0.0.8
 * Update packages,
